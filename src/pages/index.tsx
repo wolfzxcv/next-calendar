@@ -13,7 +13,7 @@ const Index = () => {
     <Container minH="100vh">
       <Header title={t('system')} />
 
-      <Box height="2000px" bg="white">
+      <Box height="2000px" width="80vw" border="1px">
         123
       </Box>
     </Container>

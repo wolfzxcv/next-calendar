@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/layout';
+import { Box, Flex } from '@chakra-ui/layout';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import Control from './Control';
@@ -49,6 +49,14 @@ const Calendar: React.FC<CalendarProps> = () => {
 
   const nextMonth = () => {
     const newDate = moment(selectDate).add(1, 'month');
+
+    setSelectDate(newDate);
+    getCalendarArray(newDate);
+  };
+
+  // update calender when user click date
+  const handleSelectDate = (selectDate) => {
+    const newDate = moment(selectDate, dateFormat);
 
     setSelectDate(newDate);
     getCalendarArray(newDate);
@@ -109,14 +117,6 @@ const Calendar: React.FC<CalendarProps> = () => {
     setDates(dateArrayOfWeeks);
   };
 
-  // update calender when user click date
-  const handleSelectDate = (selectDate) => {
-    const newDate = moment(selectDate, dateFormat);
-
-    setSelectDate(newDate);
-    getCalendarArray(newDate);
-  };
-
   return (
     <Flex
       flexDirection="column"
@@ -147,6 +147,12 @@ const Calendar: React.FC<CalendarProps> = () => {
               key={everyDay}
               fontSize={{ base: '12px', md: '24px' }}
               onClick={() => handleSelectDate(everyDay)}
+              bg={
+                moment(everyDay, dateFormat).format(dateFormat) ===
+                selectDate.format(dateFormat)
+                  ? 'blue.200'
+                  : 'auto'
+              }
             >
               <Box
                 color={
@@ -156,19 +162,7 @@ const Calendar: React.FC<CalendarProps> = () => {
                     : 'blue.600'
                 }
               >
-                <Text
-                  borderRadius="50%"
-                  bg={
-                    moment(everyDay, dateFormat).format(dateFormat) ===
-                    selectDate.format(dateFormat)
-                      ? 'blue.200'
-                      : 'auto'
-                  }
-                  padding={1}
-                  display="inline"
-                >
-                  {moment(everyDay, dateFormat).format('DD')}
-                </Text>
+                {moment(everyDay, dateFormat).format('DD')}
               </Box>
             </Flex>
           ))}

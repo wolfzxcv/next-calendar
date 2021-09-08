@@ -16,6 +16,7 @@
     "@emotion/styled": "11.1.5",
     "framer-motion": "^4.0.3",
     "fs-extra": "^10.0.0",
+    "moment": "^2.29.1",
     "next": "latest",
     "next-i18next": "^8.7.0",
     "next-images": "^1.8.1",

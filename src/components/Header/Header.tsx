@@ -15,10 +15,11 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       width="100%"
       justify="space-between"
       align="center"
-      padding={3}
+      padding={{ base: 3, md: 5 }}
       position="sticky"
       top="0"
       zIndex={1}
+      bg="inherit"
     >
       <DarkModeSwitch />
 

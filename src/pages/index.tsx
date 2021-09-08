@@ -1,10 +1,14 @@
-import { Box } from '@chakra-ui/layout';
 import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import dynamic from 'next/dynamic';
 import React from 'react';
 import { Container } from '../components/Container';
 import Header from '../components/Header/Header';
+
+const Calendar = dynamic(() => import('../components/Calendar/Calendar'), {
+  ssr: false
+});
 
 const Index = () => {
   const { t } = useTranslation(['common']);
@@ -13,9 +17,7 @@ const Index = () => {
     <Container minH="100vh">
       <Header title={t('system')} />
 
-      <Box height="2000px" width="80vw" border="1px">
-        123
-      </Box>
+      <Calendar />
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/layout';
-import { Button } from '@chakra-ui/react';
+import { IconButton } from '@chakra-ui/react';
 import React, { MouseEventHandler } from 'react';
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 
 interface ControlProps {
   lastMonth: MouseEventHandler<HTMLButtonElement>;
@@ -15,25 +16,23 @@ const Control: React.FC<ControlProps> = ({
 }) => {
   return (
     <Flex justify="space-between" align="center">
-      <Button
-        size="lg"
-        fontSize={{ base: '30px', lg: '72px' }}
-        height="auto"
-        lineHeight="auto"
+      <IconButton
         onClick={lastMonth}
-      >
-        {'<'}
-      </Button>
-      <Box fontSize={{ base: '24px', lg: '48px' }}>{selectDate}</Box>
-      <Button
+        colorScheme="facebook"
+        aria-label="lastMonth"
         size="lg"
-        fontSize={{ base: '30px', lg: '72px' }}
-        height="auto"
-        lineHeight="auto"
+        icon={<RiArrowLeftSLine fontSize="36px" />}
+      />
+
+      <Box fontSize={{ base: '24px', lg: '48px' }}>{selectDate}</Box>
+
+      <IconButton
         onClick={nextMonth}
-      >
-        {'>'}
-      </Button>
+        colorScheme="facebook"
+        aria-label="nextMonth"
+        size="lg"
+        icon={<RiArrowRightSLine fontSize="36px" />}
+      />
     </Flex>
   );
 };

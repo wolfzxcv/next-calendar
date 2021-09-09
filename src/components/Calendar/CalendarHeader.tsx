@@ -1,11 +1,11 @@
 import { Box, Flex } from '@chakra-ui/layout';
 import React from 'react';
 
-interface HeadProps {
+interface CalendarHeaderProps {
   weekdays: string[];
 }
 
-const Head: React.FC<HeadProps> = ({ weekdays }) => {
+const CalendarHeader: React.FC<CalendarHeaderProps> = ({ weekdays }) => {
   return (
     <Flex
       width="100%"
@@ -30,4 +30,4 @@ const Head: React.FC<HeadProps> = ({ weekdays }) => {
   );
 };
 
-export default Head;
+export default CalendarHeader;

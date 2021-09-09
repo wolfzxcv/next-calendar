@@ -1,15 +1,8 @@
 import { Box, Flex } from '@chakra-ui/layout';
-import dynamic from 'next/dynamic';
 import React from 'react';
 import { DarkModeSwitch } from './DarkModeSwitch';
 
-const LangSelector = dynamic(() => import('./LangSelector'), { ssr: false });
-
-interface HeaderProps {
-  title: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header: React.FC<{}> = () => {
   return (
     <Flex
       width="100%"
@@ -24,10 +17,8 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       <DarkModeSwitch />
 
       <Box display={{ base: 'none', md: 'block' }} fontSize={'4xl'}>
-        {title}
+        Alice
       </Box>
-
-      <LangSelector />
     </Flex>
   );
 };

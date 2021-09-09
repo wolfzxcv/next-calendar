@@ -1,6 +1,3 @@
-import { GetStaticProps } from 'next';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import dynamic from 'next/dynamic';
 import React from 'react';
 import { Container } from '../components/Container';
@@ -11,21 +8,12 @@ const Calendar = dynamic(() => import('../components/Calendar/Calendar'), {
 });
 
 const Index = () => {
-  const { t } = useTranslation(['common']);
-
   return (
     <Container minH="100vh">
-      <Header title={t('system')} />
-
+      <Header />
       <Calendar />
     </Container>
   );
 };
-
-export const getStaticProps: GetStaticProps = async (props) => ({
-  props: {
-    ...(await serverSideTranslations(props.locale!, ['common']))
-  }
-});
 
 export default Index;

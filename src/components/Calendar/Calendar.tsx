@@ -1,8 +1,9 @@
 import { Box, Flex } from '@chakra-ui/layout';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import CalendarFooter from './CalendarFooter';
+import CalendarHeader from './CalendarHeader';
 import Control from './Control';
-import Head from './Head';
 require('moment/min/locales.min');
 
 interface CalendarProps {}
@@ -129,8 +130,8 @@ const Calendar: React.FC<CalendarProps> = () => {
         nextMonth={nextMonth}
       />
 
-      {/* Calendar Head */}
-      <Head weekdays={weekdaysShort} />
+      {/* Calendar Header */}
+      <CalendarHeader weekdays={weekdaysShort} />
 
       {/* Calendar Body */}
       {dates.map((everyWeek) => (
@@ -168,6 +169,9 @@ const Calendar: React.FC<CalendarProps> = () => {
           ))}
         </Flex>
       ))}
+
+      {/* Calendar Footer */}
+      <CalendarFooter selectDate={selectDate.format(dateFormat)} />
     </Flex>
   );
 };

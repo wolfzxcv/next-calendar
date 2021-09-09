@@ -26,7 +26,7 @@ const CalendarFooter: React.FC<CalendarFooterProps> = ({ selectDate }) => {
       <Flex
         width="100%"
         position="fixed"
-        bottom={1}
+        bottom={0}
         left={0}
         zIndex={1}
         justify="space-between"

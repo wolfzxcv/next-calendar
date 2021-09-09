@@ -121,8 +121,8 @@ const Calendar: React.FC<CalendarProps> = () => {
   return (
     <Flex
       flexDirection="column"
-      width={{ base: '90vw', lg: '80vw' }}
-      fontSize={{ base: '12px', lg: '24px' }}
+      width={{ base: '90vw', md: '80vw' }}
+      fontSize={{ base: '12px', md: '24px' }}
     >
       <Control
         lastMonth={lastMonth}

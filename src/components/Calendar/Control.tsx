@@ -24,7 +24,7 @@ const Control: React.FC<ControlProps> = ({
         icon={<RiArrowLeftSLine fontSize="36px" />}
       />
 
-      <Box fontSize={{ base: '24px', lg: '48px' }}>{selectDate}</Box>
+      <Box fontSize={{ base: '24px', md: '48px' }}>{selectDate}</Box>
 
       <IconButton
         onClick={nextMonth}

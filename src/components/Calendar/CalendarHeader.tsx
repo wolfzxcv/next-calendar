@@ -10,9 +10,9 @@ const CalendarHeader: React.FC<CalendarHeaderProps> = ({ weekdays }) => {
     <Flex
       width="100%"
       justify="space-evenly"
-      marginTop={5}
       fontWeight={600}
       color="red.600"
+      marginTop={1}
     >
       {weekdays.map((weekday) => (
         <Box

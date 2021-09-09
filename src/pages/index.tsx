@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 import { Container } from '../components/Container';
-import Header from '../components/Header/Header';
+import Login from '../components/Login/Login';
 
 const Calendar = dynamic(() => import('../components/Calendar/Calendar'), {
   ssr: false
@@ -9,8 +9,8 @@ const Calendar = dynamic(() => import('../components/Calendar/Calendar'), {
 
 const Index = () => {
   return (
-    <Container minH="100vh">
-      <Header />
+    <Container minH="100vh" overflow="hidden">
+      <Login />
       <Calendar />
     </Container>
   );

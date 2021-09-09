@@ -11,6 +11,8 @@ import {
 import React from 'react';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
 import { BiMessageSquareAdd, BiSpreadsheet } from 'react-icons/bi';
+import CalendarModalAdd from './CalendarModalAdd';
+import CalendarModalView from './CalendarModalView';
 
 interface CalendarModalProps {
   selectDate: string;
@@ -53,7 +55,9 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
           </Flex>
         </ModalHeader>
 
-        <ModalBody>1324657987987987899</ModalBody>
+        <ModalBody>
+          {isView ? <CalendarModalView /> : <CalendarModalAdd />}
+        </ModalBody>
       </ModalContent>
     </Modal>
   );

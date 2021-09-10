@@ -24,22 +24,21 @@ const Calendar: React.FC<CalendarProps> = () => {
 
   const lastMonth = () => {
     const newDate = moment(selectDate).subtract(1, 'month');
-
-    setSelectDate(newDate);
-    getCalendarArray(newDate);
+    updateData(newDate);
   };
 
   const nextMonth = () => {
     const newDate = moment(selectDate).add(1, 'month');
-
-    setSelectDate(newDate);
-    getCalendarArray(newDate);
+    updateData(newDate);
   };
 
   // update calender when user click date
   const handleSelectDate = (selectDate) => {
     const newDate = moment(selectDate, dateFormat);
+    updateData(newDate);
+  };
 
+  const updateData = (newDate) => {
     setSelectDate(newDate);
     getCalendarArray(newDate);
   };

@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/layout';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import { getBrowserLanguage } from '../../utils';
 import CalendarFooter from './CalendarFooter';
 import CalendarHeader from './CalendarHeader';
 import Control from './Control';
@@ -18,27 +19,7 @@ const Calendar: React.FC<CalendarProps> = () => {
     getCalendarArray(selectDate);
   }, []);
 
-  const isUsingMobile =
-    navigator.userAgent.match(/Android/i) ||
-    navigator.userAgent.match(/webOS/i) ||
-    navigator.userAgent.match(/iPhone/i) ||
-    navigator.userAgent.match(/iPad/i) ||
-    navigator.userAgent.match(/iPod/i) ||
-    navigator.userAgent.match(/BlackBerry/i) ||
-    navigator.userAgent.match(/Windows Phone/i);
-
-  // default the locale to English
-  let matchLang = 'en';
-
-  if (isUsingMobile) {
-    matchLang = navigator.languages
-      .find((x) => x.substr(0, 2) === navigator.language.substr(0, 2))
-      .substr(0, 2);
-  } else {
-    matchLang = navigator.language;
-  }
-
-  moment.locale(matchLang);
+  moment.locale(getBrowserLanguage());
   const localLocale = moment(selectDate);
 
   const lastMonth = () => {

@@ -20,7 +20,6 @@ const Calendar: React.FC<CalendarProps> = () => {
   }, []);
 
   moment.locale(getBrowserLanguage());
-  const localLocale = moment(selectDate);
 
   const lastMonth = () => {
     const newDate = moment(selectDate).subtract(1, 'month');
@@ -106,7 +105,7 @@ const Calendar: React.FC<CalendarProps> = () => {
     >
       <Control
         lastMonth={lastMonth}
-        selectDate={localLocale.format('LL')}
+        selectDate={moment(selectDate).format('LL')}
         nextMonth={nextMonth}
       />
 

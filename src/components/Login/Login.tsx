@@ -14,7 +14,7 @@ const Login: React.FC<{}> = () => {
       zIndex={1}
       bg="inherit"
     >
-      <Box>Alice</Box>
+      <Box>史迪奇</Box>
     </Flex>
   );
 };

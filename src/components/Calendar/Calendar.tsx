@@ -7,9 +7,7 @@ import CalendarHeader from './CalendarHeader';
 import Control from './Control';
 require('moment/min/locales.min');
 
-interface CalendarProps {}
-
-const Calendar: React.FC<CalendarProps> = () => {
+const Calendar: React.FC<{}> = () => {
   const now = new Date();
   const dateFormat = 'DD-MM-YYYY';
   const [selectDate, setSelectDate] = useState(moment(now));
@@ -144,6 +142,12 @@ const Calendar: React.FC<CalendarProps> = () => {
               >
                 {moment(everyDay, dateFormat).format('DD')}
               </Box>
+              {moment(everyDay, dateFormat).format('DD').includes('3') && (
+                <>
+                  <Box bg="blue.400">史迪奇</Box>
+                  <Box bg="green.400">三眼</Box>
+                </>
+              )}
             </Flex>
           ))}
         </Flex>

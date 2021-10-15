@@ -45,7 +45,7 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
               )}
               <Box marginLeft={3}>{selectDate}</Box>
             </Flex>
-            {isView ? (
+            {!isView ? (
               <Button colorScheme="green">
                 <AiOutlineCheck fontSize="24px" />
               </Button>
